@@ -1,2 +1,19 @@
 class Pirate
+    attr_reader :name, :weight, :height
+
+    @@all = []
+
+    def initialize(args)
+        @name = args[:name]
+        @weight = args[:weight]
+        @height = args[:height]
+
+        args[:ships].each{|ship| Ship.new(ship)}
+        
+        self.class.all() <<self
+    end
+
+    def self.all()
+        @@all
+    end
 end

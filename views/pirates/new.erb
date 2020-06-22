@@ -1,1 +1,23 @@
-<h1>Make your form here</h1>
+<h1>Enter new information</h1>
+
+<form action="/pirates" method="post">
+
+    <label>Pirate Name:</label>
+    <input type="text" name="pirate[name]">
+    <label>Pirate Weight:</label>
+    <input type="text" name="pirate[weight]">
+    <label>Pirate Height:</label>
+    <input type="text" name="pirate[height]">
+
+    <% 2.times do |n| %>
+        <label>Ship <%= n + 1 %> Name:</label>
+        <input type="text" id="ship_name_<%= n + 1 %>" name="pirate[ships][][name]">
+        <label>Ship <%= n + 1 %> Type:</label>
+        <input type="text" id="ship_type_<%= n + 1 %>" name="pirate[ships][][type]">
+        <label>Ship <%= n + 1 %> Booty:</label>
+        <input type="text" id="ship_booty_<%= n + 1 %>" name="pirate[ships][][booty]">
+    <% end %>
+
+    <input type="submit" value="Submit">
+
+</form>
